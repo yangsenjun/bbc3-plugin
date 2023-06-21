@@ -1,0 +1,22 @@
+package ${packagePath};
+
+import ${toPath}.${ModelName}TO;
+import ${poPath}.query.Q${ModelName}PO;
+import ${queryRequestPath}.${ModelName}QueryRequest;
+import ${poPath}.${ModelName}PO;
+import io.terminus.gaia.domain.BaseConverter;
+import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
+
+/**
+* @author ${userName}
+* @date ${date}
+* description:
+**/
+@Mapper(componentModel = "spring")
+public abstract class ${ModelName}Converter extends BaseConverter<${ModelName}TO, ${ModelName}PO> {
+
+    @Mapping(target = "queryParams", source = "request")
+    public abstract Q${ModelName}PO req2qpo(${ModelName}QueryRequest request);
+
+}

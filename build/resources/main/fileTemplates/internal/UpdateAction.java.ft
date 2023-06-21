@@ -1,0 +1,16 @@
+package ${packagePath};
+
+import ${voPath}.${ModelName}VO;
+import io.terminus.trantorframework.api.annotation.Function;
+
+/**
+* @author ${userName}
+* @date ${date}
+* description:
+**/
+
+@Function
+public interface Update${ModelName}Action {
+
+    ${ModelName}VO execute(${ModelName}VO ${modelName}VO);
+}

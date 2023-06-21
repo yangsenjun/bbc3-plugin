@@ -1,0 +1,42 @@
+package ${packagePath};
+
+import ${toPath}.${ModelName}TO;
+import ${readServicePath}.${ModelName}ReadService;
+import ${queryRequestPath}.${ModelName}QueryRequest;
+import io.terminus.trantorframework.Response;
+import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.RestController;
+import io.terminus.trantorframework.Paging;
+import java.util.List;
+
+/**
+* @author ${userName}
+* @date ${date}
+* description:
+**/
+
+@RestController
+@RequiredArgsConstructor
+public class ${ModelName}ReadFacadeImpl implements ${ModelName}ReadFacade{
+    private final ${ModelName}ReadService ${modelName}ReadService;
+
+    @Override
+    public Response<${ModelName}TO> findById(Long id) {
+        return Response.ok(${modelName}ReadService.findById(id));
+    }
+
+    @Override
+    public Response<List<${ModelName}TO>> findByIds(List<Long> ids) {
+        return Response.ok(${modelName}ReadService.findByIds(ids));
+    }
+
+    @Override
+    public Response<Paging<${ModelName}TO>> page(${ModelName}QueryRequest request) {
+        return Response.ok(${modelName}ReadService.page(request));
+    }
+
+    @Override
+    public Response<List<${ModelName}TO>> findAll(${ModelName}QueryRequest request) {
+        return Response.ok(${modelName}ReadService.query(request));
+    }
+}

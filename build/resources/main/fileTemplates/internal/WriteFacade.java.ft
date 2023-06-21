@@ -1,0 +1,28 @@
+package ${packagePath};
+
+import ${toPath}.${ModelName}TO;
+import ${createRequestPath}.${ModelName}CreateRequest;
+import ${updateRequestPath}.${ModelName}UpdateRequest;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.terminus.trantorframework.Response;
+import org.springframework.cloud.openfeign.FeignClient;
+
+/**
+* @author ${userName}
+* @date ${date}
+* description:
+**/
+
+@Api("${modelDesc}领域层写 Facade")
+@FeignClient("${moduleName}")
+public interface ${ModelName}WriteFacade {
+    @ApiOperation("创建")
+    Response<${ModelName}TO> create(${ModelName}CreateRequest request);
+
+    @ApiOperation("更新")
+    Response<${ModelName}TO> update(${ModelName}UpdateRequest request);
+
+    @ApiOperation("删除")
+    Response<Boolean> delete(Long id);
+}

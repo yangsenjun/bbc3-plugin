@@ -1,0 +1,28 @@
+package ${packagePath};
+
+import ${toPath}.${ModelName}TO;
+import ${voPath}.${ModelName}VO;
+import ${voPath}.query.Q${ModelName}VO;
+import ${queryRequestPath}.${ModelName}QueryRequest;
+import io.terminus.gaia.domain.BaseConverter;
+import io.terminus.trantorframework.Paging;
+import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
+
+/**
+* @author ${userName}
+* @date ${date}
+* description:
+**/
+@Mapper(componentModel = "spring")
+public abstract class ${ModelName}VOConverter extends BaseConverter<${ModelName}TO, ${ModelName}VO> {
+
+    @Mapping(target = "pageNo", source = "queryParams.page.no")
+    @Mapping(target = "pageSize", source = "queryParams.page.size")
+    public abstract ${ModelName}QueryRequest convert2Req(Q${ModelName}VO q${ModelName}VO);
+
+    public Paging<${ModelName}VO> to2o4page(Paging<${ModelName}TO> page){
+        return null == page ? Paging.empty() : new Paging(page.getTotal(), this.to2po4list(page.getData()));
+    }
+
+}

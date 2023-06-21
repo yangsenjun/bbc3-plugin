@@ -1,0 +1,39 @@
+package ${packagePath};
+
+import ${toPath}.${ModelName}TO;
+import ${writeServicePath}.${ModelName}WriteService;
+import ${createRequestPath}.${ModelName}CreateRequest;
+import ${updateRequestPath}.${ModelName}UpdateRequest;
+import io.terminus.platform.sdk.transaction.DSTransaction;
+import io.terminus.trantorframework.Response;
+import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.RestController;
+
+/**
+* @author ${userName}
+* @date ${date}
+* description:
+**/
+
+@RestController
+@RequiredArgsConstructor
+public class ${ModelName}WriteFacadeImpl implements ${ModelName}WriteFacade{
+    private final ${ModelName}WriteService ${modelName}WriteService;
+
+    @Override
+    @DSTransaction
+    public Response<${ModelName}TO> create(${ModelName}CreateRequest request) {
+        return Response.ok(${modelName}WriteService.create(request));
+    }
+
+    @Override
+    @DSTransaction
+    public Response<${ModelName}TO> update(${ModelName}UpdateRequest request) {
+        return Response.ok(${modelName}WriteService.update(request));
+    }
+
+    @Override
+    public Response<Boolean> delete(Long id){
+        return Response.ok(${modelName}WriteService.delete(id));
+    }
+}

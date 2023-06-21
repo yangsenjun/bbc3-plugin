@@ -1,0 +1,33 @@
+package ${packagePath};
+
+import ${toPath}.${ModelName}TO;
+import ${queryRequestPath}.${ModelName}QueryRequest;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.terminus.trantorframework.Response;
+import org.springframework.cloud.openfeign.FeignClient;
+import io.terminus.trantorframework.Paging;
+import java.util.List;
+
+/**
+* @author ${userName}
+* @date ${date}
+* description:
+**/
+
+@Api("${modelDesc}领域层读 Facade")
+@FeignClient("${moduleName}")
+public interface ${ModelName}ReadFacade {
+
+    @ApiOperation("id 查询")
+    Response<${ModelName}TO> findById(Long id);
+
+    @ApiOperation("ids 查询")
+    Response<List<${ModelName}TO>> findByIds(List<Long> ids);
+    
+    @ApiOperation("分页查询")
+    Response<Paging<${ModelName}TO>> page(${ModelName}QueryRequest request);
+
+    @ApiOperation("列表查询")
+    Response<List<${ModelName}TO>> findAll(${ModelName}QueryRequest request);
+}

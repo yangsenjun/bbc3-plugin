@@ -1,0 +1,27 @@
+package ${packagePath};
+
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import io.terminus.gaia.model.ApiBean;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+
+import java.util.List;
+
+/**
+ * @author ${userName}
+ * @date ${date}
+ * description:
+ **/
+
+@EqualsAndHashCode(callSuper = true)
+@Data
+@ApiModel("${modelDesc}")
+@NoArgsConstructor
+@AllArgsConstructor
+@SuppressWarnings("serial")
+public class ${ModelName}TO extends ApiBean<Long>  {
+
+}

@@ -1,0 +1,24 @@
+package ${packagePath};
+
+import io.terminus.trantorframework.api.BaseModel;
+import io.terminus.trantorframework.api.annotation.Field;
+import io.terminus.trantorframework.api.annotation.FieldType;
+import io.terminus.trantorframework.api.annotation.Index;
+import io.terminus.trantorframework.api.annotation.Model;
+import io.terminus.trantorframework.api.annotation.typemeta.DictionaryMeta;
+import io.terminus.trantorframework.api.annotation.typemeta.TextMeta;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+
+/**
+* @author ${userName}
+* @date ${date}
+* description:
+**/
+@EqualsAndHashCode(callSuper = true)
+@Data
+@TransientModel(name = "${modelDesc}")
+@SuppressWarnings("serial")
+public class ${ModelName}VO extends BaseModel<Long> {
+
+}

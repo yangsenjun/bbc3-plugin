@@ -1,0 +1,32 @@
+package ${packagePath};
+
+import ${detailActionPath}.${ModelName}DetailAction;
+import ${converterVOPath}.${ModelName}VOConverter;
+import ${voPath}.${ModelName}VO;
+import ${readFacadePath}.${ModelName}ReadFacade;
+import ${toPath}.${ModelName}TO;
+import io.terminus.gaia.util.Assert;
+import io.terminus.trantorframework.Response;
+import io.terminus.trantorframework.api.annotation.FunctionImpl;
+import lombok.RequiredArgsConstructor;
+
+/**
+* @author ${userName}
+* @date ${date}
+* description:
+**/
+
+@FunctionImpl
+@RequiredArgsConstructor
+public class ${ModelName}DetailActionImpl implements ${ModelName}DetailAction {
+
+    private final ${ModelName}ReadFacade ${modelName}ReadFacade;
+    private final ${ModelName}VOConverter ${modelName}Converter;
+
+    @Override
+    public ${ModelName}VO execute(${ModelName}VO ${modelName}VO) {
+        Response<${ModelName}TO> ${modelName}Res = ${modelName}ReadFacade.findById(${modelName}VO.getId());
+        ${ModelName}TO ${modelName}TO = Assert.getResult(${modelName}Res);
+        return ${modelName}Converter.to2po(${modelName}TO);
+    }
+}

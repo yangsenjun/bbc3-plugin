@@ -1,0 +1,29 @@
+package ${packagePath};
+
+import ${toPath}.${ModelName}TO;
+import io.swagger.annotations.ApiModel;
+import io.terminus.api.request.AbstractRequest;
+import lombok.*;
+import org.springframework.util.Assert;
+
+/**
+* @author ${userName}
+* @date ${date}
+* description:
+**/
+
+@AllArgsConstructor
+@NoArgsConstructor
+@EqualsAndHashCode(callSuper = true)
+@Data
+@SuppressWarnings("serial")
+@ApiModel("${modelDesc}创建模型")
+public class ${ModelName}CreateRequest extends AbstractRequest {
+
+    private ${ModelName}TO ${modelName}TO;
+
+    @Override
+    public void checkParam() {
+        Assert.notNull(this.${modelName}TO,"${modelName}TO create param lack");
+    }
+}

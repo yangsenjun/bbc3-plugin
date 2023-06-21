@@ -1,0 +1,36 @@
+package ${packagePath};
+
+import ${updateActionPath}.Update${ModelName}Action;
+import ${converterVOPath}.${ModelName}VOConverter;
+import ${voPath}.${ModelName}VO;
+import ${writeFacadePath}.${ModelName}WriteFacade;
+import ${toPath}.${ModelName}TO;
+import ${updateRequestPath}.${ModelName}UpdateRequest;
+import io.terminus.gaia.util.Assert;
+import io.terminus.trantorframework.Response;
+import io.terminus.trantorframework.api.annotation.FunctionImpl;
+import lombok.RequiredArgsConstructor;
+
+/**
+* @author ${userName}
+* @date ${date}
+* description:
+**/
+
+@FunctionImpl
+@RequiredArgsConstructor
+public class Update${ModelName}ActionImpl implements Update${ModelName}Action {
+
+    private final ${ModelName}WriteFacade ${modelName}WriteFacade;
+    private final ${ModelName}VOConverter ${modelName}VOConverter;
+
+    @Override
+    public ${ModelName}VO execute(${ModelName}VO ${modelName}VO) {
+        ${ModelName}UpdateRequest ${modelName}UpdateRequest = new ${ModelName}UpdateRequest();
+        ${ModelName}TO ${modelName}TO = ${modelName}VOConverter.po2to(${modelName}VO);
+        ${modelName}UpdateRequest.set${ModelName}TO(${modelName}TO);
+        Response<${ModelName}TO> updateRes = ${modelName}WriteFacade.update(${modelName}UpdateRequest);
+        ${ModelName}TO updateResTO = Assert.getResult(updateRes);
+        return ${modelName}VOConverter.to2po(updateResTO);
+    }
+}

@@ -1,0 +1,19 @@
+package ${packagePath};
+
+import ${voPath}.${ModelName}VO;
+import ${voPath}.query.Q${ModelName}VO;
+import io.terminus.trantorframework.Paging;
+import io.terminus.trantorframework.api.annotation.Function;
+
+/**
+* @author ${userName}
+* @date ${date}
+* description:
+**/
+
+@Function
+public interface ${ModelName}PagingAction {
+
+    Paging<${ModelName}VO> execute(Q${ModelName}VO q${ModelName}VO);
+
+}

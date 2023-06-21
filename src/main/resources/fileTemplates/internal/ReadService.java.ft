@@ -1,0 +1,63 @@
+package ${packagePath};
+
+import ${toPath}.${ModelName}TO;
+import ${poPath}.query.Q${ModelName}PO;
+import ${repositoryPath}.${ModelName}Repository;
+import ${converterPath}.${ModelName}Converter;
+import ${queryRequestPath}.${ModelName}QueryRequest;
+import io.terminus.trantorframework.querymodel.type.support.QLongId;
+import lombok.RequiredArgsConstructor;
+import lombok.val;
+import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
+import java.util.Collections;
+import java.util.List;
+import io.terminus.trantorframework.Paging;
+
+/**
+* @author ${userName}
+* @date ${date}
+* description:
+**/
+
+@Service
+@RequiredArgsConstructor
+public class ${ModelName}ReadService {
+    private final ${ModelName}Repository ${modelName}Repository;
+    private final ${ModelName}Converter ${modelName}Converter;
+
+    public List<${ModelName}TO> query(${ModelName}QueryRequest request) {
+        val q${ModelName} = ${modelName}Converter.req2qpo(request);
+        return queryByQModel(q${ModelName});
+    }
+
+    public ${ModelName}TO findById(Long id) {
+        return ${modelName}Repository.findById(id).map(${modelName}Converter::po2to).orElse(null);
+    }
+
+    public List<${ModelName}TO> findByIds(List<Long> ids) {
+        Q${ModelName}PO q${ModelName} = new Q${ModelName}PO();
+        q${ModelName}.setId(new QLongId(ids));
+        return queryByQModel(q${ModelName});
+    }
+
+    public Paging<${ModelName}TO> page(${ModelName}QueryRequest request) {
+        val qRequest = ${modelName}Converter.req2qpo(request);
+        val pagingResult = ${modelName}Repository.paging(qRequest);
+
+        if (CollectionUtils.isEmpty(pagingResult.getData())){
+            return Paging.empty();
+        }
+
+        return new Paging<>(pagingResult.getTotal(),${modelName}Converter.po2to4list(pagingResult.getData()));
+    }
+
+    private List<${ModelName}TO> queryByQModel(Q${ModelName}PO q${ModelName}PO) {
+        val ${modelName}PoList = ${modelName}Repository.findAll(q${ModelName}PO);
+        if (CollectionUtils.isEmpty(${modelName}PoList)){
+            return Collections.emptyList();
+        }
+
+        return ${modelName}Converter.po2to4list(${modelName}PoList);
+    }
+}

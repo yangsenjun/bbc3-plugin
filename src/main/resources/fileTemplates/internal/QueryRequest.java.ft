@@ -1,0 +1,29 @@
+package ${packagePath};
+
+import ${toPath}.${ModelName}TO;
+import io.swagger.annotations.ApiModel;
+import io.terminus.api.request.AbstractPageRequest;
+import lombok.*;
+import org.springframework.util.Assert;
+
+/**
+* @author ${userName}
+* @date ${date}
+* description:
+**/
+
+@EqualsAndHashCode(callSuper = true)
+@Data
+@ApiModel("${modelDesc} 查询入参模型")
+@NoArgsConstructor
+@AllArgsConstructor
+@SuppressWarnings("serial")
+public class ${ModelName}QueryRequest  extends AbstractPageRequest {
+
+    private Long id;
+
+    @Override
+    public void checkParam() {
+        super.checkParam();
+    }
+}

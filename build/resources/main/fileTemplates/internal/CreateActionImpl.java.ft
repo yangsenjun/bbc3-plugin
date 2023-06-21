@@ -1,0 +1,36 @@
+package ${packagePath};
+
+import ${createActionPath}.Create${ModelName}Action;
+import ${converterVOPath}.${ModelName}VOConverter;
+import ${voPath}.${ModelName}VO;
+import ${writeFacadePath}.${ModelName}WriteFacade;
+import ${toPath}.${ModelName}TO;
+import ${createRequestPath}.${ModelName}CreateRequest;
+import io.terminus.gaia.util.Assert;
+import io.terminus.trantorframework.Response;
+import io.terminus.trantorframework.api.annotation.FunctionImpl;
+import lombok.RequiredArgsConstructor;
+
+/**
+* @author ${userName}
+* @date ${date}
+* description:
+**/
+
+@FunctionImpl
+@RequiredArgsConstructor
+public class Create${ModelName}ActionImpl implements Create${ModelName}Action {
+
+    private final ${ModelName}WriteFacade ${modelName}WriteFacade;
+    private final ${ModelName}VOConverter ${modelName}Converter;
+
+    @Override
+    public ${ModelName}VO execute(${ModelName}VO ${modelName}VO) {
+        ${ModelName}CreateRequest ${modelName}CreateRequest = new ${ModelName}CreateRequest();
+        ${ModelName}TO ${modelName}TO = ${modelName}Converter.po2to(${modelName}VO);
+        ${modelName}CreateRequest.set${ModelName}TO(${modelName}TO);
+        Response<${ModelName}TO> ${modelName}TOResponse = ${modelName}WriteFacade.create(${modelName}CreateRequest);
+        ${ModelName}TO ${modelName}Res = Assert.getResult(${modelName}TOResponse);
+        return ${modelName}Converter.to2po(${modelName}Res);
+    }
+}

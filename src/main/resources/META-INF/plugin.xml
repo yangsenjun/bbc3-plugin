@@ -1,0 +1,66 @@
+<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+<idea-plugin>
+    <id>io.terminus.gaia.BBC.plugins.BBC3</id>
+    <name>BBC3</name>
+    <version>1.0.2</version>
+
+    <vendor>terminus</vendor>
+
+    <depends>com.intellij.java</depends>
+    <depends>com.intellij.modules.java</depends>
+    <depends>com.intellij.modules.platform</depends>
+
+    <description>
+        <![CDATA[
+      CURD generating tool
+      Illustrates various basic Editor APIs. Requires at least project to be open, and a file open in the editor
+      to see the menu items this plugin adds to the editor popup menu.<br>Mouse over each of this plugin's menu items
+      to see hints in the lower left corner of the IDE.
+    ]]>
+    </description>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <internalFileTemplate name="TO"/>
+        <internalFileTemplate name="Converter"/>
+        <internalFileTemplate name="CreateRequest"/>
+        <internalFileTemplate name="QueryRequest"/>
+        <internalFileTemplate name="ReadFacade"/>
+        <internalFileTemplate name="ReadFacadeImpl"/>
+        <internalFileTemplate name="ReadService"/>
+        <internalFileTemplate name="Repository"/>
+        <internalFileTemplate name="UpdateRequest"/>
+        <internalFileTemplate name="WriteFacade"/>
+        <internalFileTemplate name="WriteFacadeImpl"/>
+        <internalFileTemplate name="WriteService"/>
+
+        <internalFileTemplate name="VOConverter"/>
+        <internalFileTemplate name="CreateAction"/>
+        <internalFileTemplate name="DeleteAction"/>
+        <internalFileTemplate name="PagingAction"/>
+        <internalFileTemplate name="DetailAction"/>
+        <internalFileTemplate name="UpdateAction"/>
+        <internalFileTemplate name="CreateActionImpl"/>
+        <internalFileTemplate name="DeleteActionImpl"/>
+        <internalFileTemplate name="PagingActionImpl"/>
+        <internalFileTemplate name="DetailActionImpl"/>
+        <internalFileTemplate name="UpdateActionImpl"/>
+        <internalFileTemplate name="VO"/>
+    </extensions>
+
+    <actions>
+<!--        <action id="com.bbc.plugins.action.DomainCrudAction" class="com.bbc.plugins.action.DomainCrudAction" text="领域层CRUD自动化">-->
+<!--            <add-to-group group-id="ProjectViewPopupMenu" anchor="first"/>-->
+<!--        </action>-->
+
+        <group id="org.intellij.sdk.action.GroupedActions"
+               text="BBC3.0" description="BBC3.0"
+               popup="true">
+            <add-to-group group-id="EditorPopupMenu" anchor="first"/>
+            <action id="com.bbc.plugins.action.BbcCrudAction" class="com.bbc.plugins.action.BbcCrudAction" text="应用层CRUD自动化">
+            </action>
+            <action id="com.bbc.plugins.action.DomainCrudAction" class="com.bbc.plugins.action.DomainCrudAction" text="领域层CRUD自动化">
+            </action>
+        </group>
+    </actions>
+
+</idea-plugin>

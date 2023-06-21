@@ -1,0 +1,32 @@
+package ${packagePath};
+
+import ${deleteActionPath}.Delete${ModelName}Action;
+import ${voPath}.${ModelName}VO;
+import ${writeFacadePath}.${ModelName}WriteFacade;
+import ${toPath}.${ModelName}TO;
+import io.terminus.gaia.util.Assert;
+import io.terminus.trantor.module.base.model.result.BooleanResult;
+import io.terminus.trantorframework.Response;
+import io.terminus.trantorframework.api.annotation.FunctionImpl;
+import io.terminus.trantorframework.exception.BusinessException;
+import lombok.RequiredArgsConstructor;
+
+/**
+* @author ${userName}
+* @date ${date}
+* description:
+**/
+
+@FunctionImpl
+@RequiredArgsConstructor
+public class Delete${ModelName}ActionImpl implements Delete${ModelName}Action {
+
+    private final ${ModelName}WriteFacade ${modelName}WriteFacade;
+
+    @Override
+    public BooleanResult execute(${ModelName}VO ${modelName}VO) {
+        Response<Boolean> deleteRes = ${modelName}WriteFacade.delete(${modelName}VO.getId());
+        Assert.getResult(deleteRes);
+        return BooleanResult.TRUE;
+    }
+}

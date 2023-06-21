@@ -1,0 +1,36 @@
+package ${packagePath};
+
+import ${pagingActionPath}.${ModelName}PagingAction;
+import ${converterVOPath}.${ModelName}VOConverter;
+import ${voPath}.${ModelName}VO;
+import ${voPath}.query.Q${ModelName}VO;
+import ${readFacadePath}.${ModelName}ReadFacade;
+import ${toPath}.${ModelName}TO;
+import ${queryRequestPath}.${ModelName}QueryRequest;
+import io.terminus.gaia.util.Assert;
+import io.terminus.trantorframework.Paging;
+import io.terminus.trantorframework.Response;
+import io.terminus.trantorframework.api.annotation.FunctionImpl;
+import lombok.RequiredArgsConstructor;
+
+/**
+* @author ${userName}
+* @date ${date}
+* description:
+**/
+
+@FunctionImpl
+@RequiredArgsConstructor
+public class ${ModelName}PagingActionImpl implements ${ModelName}PagingAction {
+
+    private final ${ModelName}ReadFacade ${modelName}ReadFacade;
+    private final ${ModelName}VOConverter ${modelName}Converter;
+
+    @Override
+    public Paging<${ModelName}VO> execute(Q${ModelName}VO q${modelName}VO) {
+        ${ModelName}QueryRequest ${modelName}QueryRequest = ${modelName}Converter.convert2Req(q${modelName}VO);
+        Response<Paging<${ModelName}TO>> ${modelName}PageRes = ${modelName}ReadFacade.page(${modelName}QueryRequest);
+        Paging<${ModelName}TO> ${modelName}Page = Assert.getResult(${modelName}PageRes);
+        return ${modelName}Converter.to2o4page(${modelName}Page);
+    }
+}

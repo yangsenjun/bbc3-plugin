@@ -1,0 +1,43 @@
+package ${packagePath};
+
+import ${toPath}.${ModelName}TO;
+import ${repositoryPath}.${ModelName}Repository;
+import ${converterPath}.${ModelName}Converter;
+import ${createRequestPath}.${ModelName}CreateRequest;
+import ${updateRequestPath}.${ModelName}UpdateRequest;
+import com.google.common.collect.Lists;
+import lombok.RequiredArgsConstructor;
+import lombok.val;
+import org.springframework.stereotype.Service;
+import java.util.List;
+
+/**
+* @author ${userName}
+* @date ${date}
+* description:
+**/
+
+@Service
+@RequiredArgsConstructor
+public class ${ModelName}WriteService {
+    private final ${ModelName}Repository ${modelName}Repository;
+    private final ${ModelName}Converter ${modelName}Converter;
+
+    public ${ModelName}TO create(${ModelName}CreateRequest request) {
+        // 参数转化
+        val ${modelName} = ${modelName}Converter.to2po(request.get${ModelName}TO());
+        // 创建
+        return ${modelName}Converter.po2to(${modelName}Repository.create(${modelName}));
+    }
+
+    public ${ModelName}TO update(${ModelName}UpdateRequest request) {
+        // 参数转化
+        val ${modelName} = ${modelName}Converter.to2po(request.get${ModelName}TO());
+        // 修改
+        return ${modelName}Converter.po2to(${modelName}Repository.update(${modelName}));
+    }
+
+    public Boolean delete(Long id) {
+        return ${modelName}Repository.deleteById(id);
+    }
+}
