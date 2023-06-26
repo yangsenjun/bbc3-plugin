@@ -1,15 +1,23 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
   <change-notes />
-  <idea-version since-build="213.5744.223" until-build="223.8836.41" />
+  <idea-version since-build="213.5744.223" until-build="231.8109.175" />
   <id>io.terminus.gaia.BBC.plugins.BBC3</id>
   <name>BBC3</name>
-  <version>1.0.3</version>
+  <version>1.0.4</version>
   <vendor>terminus</vendor>
   <depends>com.intellij.java</depends>
   <depends>com.intellij.modules.java</depends>
   <depends>com.intellij.modules.platform</depends>
-  <description>&lt;p&gt;This plugin supports automatic generation of CRUD in the BBC3.0 application layer domain layer&lt;/p&gt;</description>
+  <description>&lt;p&gt;This plugin supports automatic generation of CRUD in the BBC3.0 application layer domain layer
+&lt;P&gt;
+    Operating Steps:
+    &lt;P&gt;
+      &lt;P&gt;1:Select Resource File&lt;/P&gt;
+      &lt;P&gt;2:Click on the CURD generation button&lt;/P&gt;
+      &lt;P&gt;3:Confirm Package Path&lt;/P&gt;
+    &lt;/P&gt;
+&lt;/P&gt;&lt;/p&gt;</description>
   <extensions defaultExtensionNs="com.intellij">
     <internalFileTemplate name="TO" />
     <internalFileTemplate name="Converter" />

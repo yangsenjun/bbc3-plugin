@@ -2,6 +2,14 @@
 
 <!-- Plugin description -->
 This plugin supports automatic generation of CRUD in the BBC3.0 application layer domain layer
+<P>
+    Operating Steps:
+    <P>
+      <P>1:Select Resource File</P>
+      <P>2:Click on the CURD generation button</P>
+      <P>3:Confirm Package Path</P>
+    </P>
+</P>
 <!-- Plugin description end -->
 
 If you're still not quite sure what this is all about, read our introduction: [What is the IntelliJ Platform?][docs:intro]
