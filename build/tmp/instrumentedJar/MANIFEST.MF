@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Created-By: Gradle 8.1
 Build-JVM: 11.0.13 (Oracle Corporation 11.0.13+10-LTS-370)
-Version: 1.0.4
+Version: 1.0.5
 Build-Plugin: Gradle IntelliJ Plugin
 Build-Plugin-Version: 1.13.3
 Build-OS: Mac OS X 11.5 x86_64

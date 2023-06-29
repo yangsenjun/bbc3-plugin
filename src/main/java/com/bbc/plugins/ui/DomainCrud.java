@@ -168,7 +168,7 @@ public class DomainCrud extends JDialog {
 
         String modelName = CommonUtil.getModelName(psiClass);
         map.put("ModelName", modelName);
-        map.put("modelName", modelName.toLowerCase(Locale.ROOT));
+        map.put("modelName", modelName.substring(0, 1).toLowerCase(Locale.ROOT) + modelName.substring(1));
 
         String[] projectNames = project.getName().split("-");
         if (projectNames.length > 2) {
@@ -206,4 +206,5 @@ public class DomainCrud extends JDialog {
     public void setPsiDirectory(PsiDirectory psiDirectory) {
         this.psiDirectory = psiDirectory;
     }
+
 }

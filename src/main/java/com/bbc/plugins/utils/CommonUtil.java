@@ -1,7 +1,6 @@
 package com.bbc.plugins.utils;
 
 import com.intellij.ide.projectView.impl.ProjectRootsUtil;
-import com.intellij.openapi.module.ModuleUtil;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.psi.PsiClass;
@@ -9,7 +8,7 @@ import com.intellij.psi.PsiDirectory;
 import com.intellij.psi.PsiManager;
 
 import java.io.IOException;
-import java.util.*;
+import java.util.Objects;
 
 /**
  * @author 杨森君
@@ -65,9 +64,7 @@ public class CommonUtil {
     }
 
     public static String getModelName(PsiClass po) {
-        return po.getName().replace("PO", "").replace("BO", "")
-                .replace("Po","").replace("Bo","")
-                .replace("VO","").replace("Vo","");
+        return po.getName().substring(0, po.getName().length() - 2);
     }
 
 
