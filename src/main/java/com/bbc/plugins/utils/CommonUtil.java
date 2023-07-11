@@ -18,7 +18,7 @@ public class CommonUtil {
 
     public static PsiDirectory analysisPath(Project project, String module, String path) throws IOException {
         VirtualFile virtualFile = null;
-        for(VirtualFile file:project.getProjectFile().getParent().getParent().getChildren()){
+        for(VirtualFile file: Objects.requireNonNull(project.getProjectFile()).getParent().getParent().getChildren()){
             if(file.getName().contains(module)){
                 virtualFile = file;
             }
