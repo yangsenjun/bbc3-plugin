@@ -4,7 +4,7 @@
   <idea-version since-build="202.6948.69" until-build="231.9011.34" />
   <id>io.terminus.gaia.BBC.plugins.BBC3</id>
   <name>BBC3</name>
-  <version>1.0.7</version>
+  <version>1.0.8</version>
   <vendor>terminus</vendor>
   <depends>com.intellij.java</depends>
   <depends>com.intellij.modules.java</depends>
